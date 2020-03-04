@@ -7,7 +7,10 @@ within the 'word/document.xml' section of a MSWord .dotm file.
 """
 __author__ = 'Julita'
 
-import os, argparse, zipfile
+import os
+# import argparse
+import zipfile
+
 
 def grabfile(directories):
     hold_files = []
@@ -19,41 +22,41 @@ def grabfile(directories):
 
 
 def readfile(file_name, text):
-#with open() cannot open a dotm file
+    # with open() cannot open a dotm file
     file = zipfile.ZipFile(file_name)
     track_matches = 0
     with file.open('word/document.xml') as f:
-        #print(f)
+        # print(f)
 
         for line in f:
             txt = line.find(text)
             while txt != -1:
-                #print(line)
+                # print(line)
                 print(line[txt - 40: txt + 40])
                 txt = line.find('$', txt + 1)
-                #print(txt)
+                # print(txt)
                 track_matches += 1
-    #print(track_matches)
+    # print(track_matches)
     return track_matches
 
 
 def main():
-    #raise NotImplementedError("Your awesome code begins here!")
+    # raise NotImplementedError("Your awesome code begins here!")
     run_path = grabfile('./dotm_files')
     file_total = 0
     match_total = 0
 
     for x in run_path:
         if(x.endswith('.dotm')):
-            file_total +=1
-            matches = readfile(x,'$')
-            #print(matches)
+            file_total += 1
+            matches = readfile(x, '$')
+            # print(matches)
             if (matches > 0):
-                match_total +=1
-        else: continue
+                match_total += 1
+        else:
+            continue
 
     print(match_total)
-
 
 
 if __name__ == '__main__':
