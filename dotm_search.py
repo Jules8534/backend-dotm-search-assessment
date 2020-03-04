@@ -5,7 +5,7 @@
 Given a directory path, search all files in the path for a given text string
 within the 'word/document.xml' section of a MSWord .dotm file.
 """
-#__author__ = Julita
+__author__ = 'Julita'
 
 import os, argparse, zipfile
 
@@ -47,7 +47,7 @@ def main():
         if(x.endswith('.dotm')):
             file_total +=1
             matches = readfile(x,'$')
-            print(matches)
+            #print(matches)
             if (matches > 0):
                 match_total +=1
         else: continue
