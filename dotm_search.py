@@ -50,7 +50,6 @@ def main():
         if(x.endswith('.dotm')):
             file_total += 1
             matches = readfile(x, '$')
-            # print(matches)
             if (matches > 0):
                 match_total += 1
         else:
