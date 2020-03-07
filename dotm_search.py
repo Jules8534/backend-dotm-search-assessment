@@ -5,7 +5,7 @@
 Given a directory path, search all files in the path for a given text string
 within the 'word/document.xml' section of a MSWord .dotm file.
 """
-__author__ = 'Julita'
+__author__ = 'Julita, Chris, Koren, Sean, Brandi, and demo'
 
 import os
 # import argparse
@@ -56,6 +56,7 @@ def main():
             continue
 
     print(match_total)
+    print(file_total)
 
 
 if __name__ == '__main__':
